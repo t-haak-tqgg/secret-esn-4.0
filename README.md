@@ -39,6 +39,7 @@ Shopify Foundation Theme is modern Shopify theme built with [Shopify Theme Lab](
 - Tailwind CSS
 - Responsive
 - Image lazy-loading
+- Vite 
 <!-- features (end) -->
 
 <!-- docs (start) -->
@@ -46,3 +47,30 @@ Shopify Foundation Theme is modern Shopify theme built with [Shopify Theme Lab](
 
 Everything from the [Shopify Theme Lab docs](https://uicrooks.github.io/shopify-theme-lab-docs) applies to this project, since it was built with Shopify Theme Lab.
 <!-- docs (end) -->
+
+## Translating Vue files
+in src/main.js add the i18n Vue plugin:
+
+import { createApp } from 'vue'
+import { VuePlugin as i18n } from 'shopify-theme-lab-i18n'
+
+const app = createApp({})
+app.use(i18n)
+Inside Vue components you can now call the $t method:
+```js
+<template>
+  <div>
+    {{ $t('action.log_in') }}
+  </div>
+</template>
+```
+
+```js
+<script>
+export default {
+  created () {
+    this.$t('action.log_in')
+  }
+}
+</script>
+```

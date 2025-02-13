@@ -1,9 +1,11 @@
 /**
  * imports
  */
-import { createApp } from 'vue'
-import { createStore } from 'vuex'
-import './css/main.css'
+
+import { createApp } from "vue";
+import { createStore } from "vuex";
+import { VuePlugin as i18n } from "shopify-theme-lab-i18n";
+import "./css/main.css";
 
 /**
  * vuex
@@ -26,7 +28,8 @@ const store = createStore({
  * create vue instance function
  */
 const createVueApp = () => {
-  const app = createApp({})
+  const app = createApp({});
+  app.use(i18n);
 
   /**
    * vue components
